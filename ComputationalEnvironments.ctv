@@ -1,0 +1,21 @@
+<CRANTaskView>
+  <name>ComputationalEnvironments</name>
+  <topic>Computational Environments and Reproducibility</topic>
+  <maintainer email="daniel.nuest@uni-muenster.de">Daniel Nüst</maintainer>
+  <version>2018-01-10</version>
+  <info>
+    <p><em>Do not edit this README by hand. See <a href="CONTRIBUTING.md" class="uri">CONTRIBUTING.md</a>.</em></p><p>This Task View contains information about controlling and documenting computational environments in R. The base version of R does not provide features to manage different version of R or collections of packages easily, so a number of approaches and packages exist to simplify computational environments for the sake of development, testing, bug-fixing, and reproducibility. The <a href="https://cran.r-project.org/view=ReproducibleResearch">ReproducibleResearch Task View</a> provides further discussion of packages around scientific reproducibility.</p><p>If you have any comments or suggestions for additions or improvements for this Task View, go to GitHub and <a href="https://github.com/o2r-project/ctv-computational-environments/issues">submit an issue</a>, or make some changes and <a href="https://github.com/o2r-project/ctv-computational-environments/pulls">submit a pull request</a>. If you can't contribute on GitHub, <script type="text/javascript">
+    <!--
+    h='&#x75;&#110;&#x69;&#x2d;&#x6d;&#x75;&#x65;&#110;&#x73;&#116;&#x65;&#114;&#46;&#100;&#x65;';a='&#64;';n='&#100;&#x61;&#110;&#x69;&#x65;&#108;&#46;&#110;&#x75;&#x65;&#x73;&#116;';e=n+a+h;
+    document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#x73;&#x65;&#110;&#100;&#32;&#68;&#x61;&#110;&#x69;&#x65;&#108;&#32;&#x61;&#110;&#32;&#x65;&#x6d;&#x61;&#x69;&#108;'+'<\/'+'a'+'>');
+    // -->
+    </script><noscript>&#x73;&#x65;&#110;&#100;&#32;&#68;&#x61;&#110;&#x69;&#x65;&#108;&#32;&#x61;&#110;&#32;&#x65;&#x6d;&#x61;&#x69;&#108;&#32;&#40;&#100;&#x61;&#110;&#x69;&#x65;&#108;&#46;&#110;&#x75;&#x65;&#x73;&#116;&#32;&#x61;&#116;&#32;&#x75;&#110;&#x69;&#x2d;&#x6d;&#x75;&#x65;&#110;&#x73;&#116;&#x65;&#114;&#32;&#100;&#x6f;&#116;&#32;&#100;&#x65;&#x29;</noscript>. If you have an issue with one of the packages discussed below, please contact the maintainer of that package.</p><h2 id="tools-for-working-with-containers">Tools for working with Containers</h2><p><strong>Docker</strong></p><p>Discuss <em>Rocker</em> ...</p><p>The following packages integrate or use Docker:</p><ul><li><pkg>one</pkg> is ...</li><li><a href="https://github.com/">two</a> (not on CRAN) is ...</li><li><a href="https://github.com/sckott/analogsea">analogsea</a> is a general purpose client for the Digital Ocean v2 API. In addition, the package includes functions to install various R tools including base R, RStudio server, and more. There's an improving interface to interact with docker on your remote droplets via this package.</li></ul><h2 id="package-management">Package management</h2><p>...</p>
+  </info>
+  <packagelist>
+    <pkg priority="core"></pkg>
+    <pkg>one</pkg>
+  </packagelist>
+  <links>
+    <a href="https://cran.r-project.org/view=ReproducibleResearch">ReproducibleResearch TaskView</a>
+  </links>
+</CRANTaskView>
