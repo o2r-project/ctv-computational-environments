@@ -1,8 +1,14 @@
 Thanks for your contribution!
 
-## Edit the task view:
+## Formatting
 
-### Requirements:
+Please put each sentence on one line.
+This makes merging different versions easier.
+The output document formats will ignore these simple line breaks.
+
+## Edit the task view
+
+### Requirements
 
 * `R`
 * `make`
