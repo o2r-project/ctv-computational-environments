@@ -6,11 +6,11 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="citation_title" content="CRAN Task View: Computational Environments and Reproducibility" />
   <meta name="citation_author" content="Daniel Nüst" />
-  <meta name="citation_publication_date" content="2018-01-10" />
+  <meta name="citation_publication_date" content="2018-01-11" />
   <meta name="citation_public_url" content="https://CRAN.R-project.org/view=ComputationalEnvironments" />
   <meta name="DC.title" content="CRAN Task View: Computational Environments and Reproducibility" />
   <meta name="DC.creator" content="Daniel Nüst" />
-  <meta name="DC.issued" content="2018-01-10" />
+  <meta name="DC.issued" content="2018-01-11" />
   <meta name="DC.identifier" content="https://CRAN.R-project.org/view=ComputationalEnvironments" />
 </head>
 
@@ -19,7 +19,7 @@
   <table summary="ComputationalEnvironments task view information">
     <tr><td valign="top"><b>Maintainer:</b></td><td>Daniel Nüst</td></tr>
     <tr><td valign="top"><b>Contact:</b></td><td>&#x64;&#x61;&#x6e;&#x69;&#x65;&#x6c;&#x2e;&#x6e;&#x75;&#x65;&#x73;&#x74;&#x20;&#x61;&#x74;&#x20;&#x75;&#x6e;&#x69;&#x2d;&#x6d;&#x75;&#x65;&#x6e;&#x73;&#x74;&#x65;&#x72;&#x2e;&#x64;&#x65;</td></tr>
-    <tr><td valign="top"><b>Version:</b></td><td>2018-01-10</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2018-01-11</td></tr>
     <tr><td valign="top"><b>URL:</b></td><td><a href="https://CRAN.R-project.org/view=ComputationalEnvironments">https://CRAN.R-project.org/view=ComputationalEnvironments</a></td></tr>
   </table>
 
@@ -46,52 +46,206 @@
         </a>, or make some changes and
         <a href="https://github.com/o2r-project/ctv-computational-environments/pulls">
           submit a pull request
-        </a>. If you can't contribute on GitHub,
-        <script type="text/javascript">
-        </script>
-        <noscript>
-          send Daniel an email (daniel.nuest at uni-muenster dot de)
-        </noscript>. If you have an issue with one of the packages discussed below, please contact the maintainer of that package.
+        </a>. If you can’t contribute on GitHub,
+        <a href="mailto:daniel.nuest@uni-muenster.de">
+          send Daniel an email
+        </a>. If you have an issue with one of the packages discussed below, please contact the maintainer of that package.
       </p>
-      <h2 id="tools-for-working-with-containers">
-        Tools for working with Containers
+      <h2 id="virtual-machines-and-containers">
+        Virtual Machines and Containers
       </h2>
+      <p>
+        <strong>
+          Virtual machines
+        </strong>
+        (VMs) are a straightforward way to encapsulate your runtime environment around the actual data and code.
+      </p>
+      <blockquote>
+        <p>
+          <em>
+            In computing, a virtual machine (VM) is an emulation of a computer system. Virtual machines are based on computer architectures and provide functionality of a physical computer.
+          </em>
+          <a href="https://en.wikipedia.org/wiki/Virtual_machine" class="uri">
+            https://en.wikipedia.org/wiki/Virtual_machine
+          </a>
+        </p>
+      </blockquote>
+      <p>
+        Their advantage for many users is the provided visual user interface.
+        <a href="https://www.virtualbox.org/">
+          VirtualBox
+        </a>
+        is a Free and Open Source (FOSS) virtualization product you can install on most operating systems (OS), then known as the “host” OS, and supports a number of
+        <a href="https://www.virtualbox.org/wiki/Guest_OSes">
+          “guest” operating systems
+        </a>, many of which can install and run R just like on a non-virtual OS. VMs must be booted like regular OS and have a virtual disk, which you can archive or share with collaborators (though having to handle the large file size). VMs can share directories, network, and other devices with their host.
+      </p>
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Linux_containers">
+          <strong>
+            Containers
+          </strong>
+        </a>
+        are an effective way to apply virtual environments at the system level. Compared to
+        <a href="#virtual-machines">
+          virtual machines
+        </a>
+        their most important advantage for controlled computational environments are performance and transparency. Containers share the hosts core libraries and can “boot” within milliseconds and have negligible computational overhead. They can be created with the help of scripts or “recipes”, which are simple text files. These recipes can be included in code repositories and easily shared online.
+      </p>
+      <p>
+        The most widespread container solution is
+        <strong>
+          <a href="https://docker.com">
+            Docker
+          </a>
+        </strong>. It is available for recent and common operating systems.
+        <em>
+          Dockerfiles
+        </em>
+        are the recipes that can be built to
+        <em>
+          Docker images
+        </em>, which can be run and become
+        <em>
+          Docker containers
+        </em>. Using Docker requires some proficiency with a
+        <a href="https://en.wikipedia.org/wiki/Command-line_interface">
+          command line interface
+        </a>
+        (CLI). The
+        <a href="http://hub.docker.com/">
+          Docker Hub
+        </a>
+        is an image repository with a large number of pre-built images for different use cases.
+      </p>
+      <h3 id="rocker">
+        Rocker
+      </h3>
+      <p>
+        The
+        <a href="http://rocker-project.org/">
+          <strong>
+            Rocker
+          </strong>
+          project
+        </a>
+        provides a number of Docker
+        <a href="https://www.rocker-project.org/images/">
+          images for R
+        </a>, including the
+        <a href="https://docs.docker.com/docker-hub/official_repos/">
+          official
+        </a>
+        <a href="https://hub.docker.com/_/r-base/">
+<tt>r-base</tt>
+        </a>
+        image. All Rocker images are available on the Docker Hub. Rocker images are a stable and widespread tool for running R in local and cloud environments and have established useful best practices around containers with R.
+      </p>
+      <p>
+        <em>
+          Since images can extend existing ones, using a suitable Rocker image as a base for your own computations is a very good approach to control your computational environment.
+        </em>
+        The simplest way is to run the
+<tt>rocker/rstudio</tt>
+        container and work with the
+        <a href="https://www.rstudio.com/products/rstudio/">
+          RStudio IDE
+        </a>
+        in your web browser.
+      </p>
+      <p>
+        <strong>
+          Bioconductor
+        </strong>
+        provides a
+        <a href="http://bioconductor.org/help/docker/">
+          collection of images
+        </a>
+        based on
+<tt>rocker/rstudio</tt>.
+      </p>
+      <h3 id="other-r-distributions">
+        Other R distributions
+      </h3>
+      <p>
+        Docker images for other than the “regular” R distribution are available on Docker Hub, though none at the level of maturity and features of Rocker.
+      </p>
+      <ul>
+        <li>
+<a href="../packages/one/index.html">one</a>
+          is …
+        </li>
+      </ul>
+      <h3 id="tools-for-working-with-containers">
+        Tools for working with Containers
+      </h3>
       <p>
         <strong>
           Docker
         </strong>
       </p>
-      <p>
-        Discuss
-        <em>
-          Rocker
-        </em>...
-      </p>
-      <p>
-        The following packages integrate or use Docker:
-      </p>
       <ul>
         <li>
-<a href="../packages/one/index.html">one</a>
-          is ...
+          <a href="https://github.com/wch/harbor/">
+<tt>harbor</tt>
+          </a>
+          (not on CRAN) provides all Docker commands with R functions. It may be used to control Docker containers that run either locally or remotely.
         </li>
         <li>
-          <a href="https://github.com/">
-            two
+<a href="../packages/docker/index.html">docker</a>
+          (source code
+          <a href="https://github.com/bhaskarvk/docker">
+            on GitHub
+          </a>) is an alternative to the plain R
+<tt>harbor</tt>
+          and provides Docker CLI commands using the
+          <a href="https://docker-py.readthedocs.io/en/stable/">
+            Docker SDK for Python
           </a>
-          (not on CRAN) is ...
+          via the package
+          <a href="https://rstudio.github.io/reticulate/">
+<tt>reticulate</tt>
+          </a>
+          and consequently runs on various operating systems (including Windows). The package is best suited for apt Docker users, i.e. if you know the Docker commands and life cycle.
+        </li>
+        <li>
+          <a href="https://github.com/cboettig/dockermachine">
+<tt>dockermachine</tt>
+          </a>
+          (not on CRAN) provides a convenient R interface to the
+          <a href="https://docs.docker.com/machine/overview/">
+<tt>docker-machine</tt>
+          </a>
+          command, so you can provision easily local or remote/cloud instances of containers.
         </li>
         <li>
           <a href="https://github.com/sckott/analogsea">
             analogsea
           </a>
-          is a general purpose client for the Digital Ocean v2 API. In addition, the package includes functions to install various R tools including base R, RStudio server, and more. There's an improving interface to interact with docker on your remote droplets via this package.
+          is a general purpose client for the Digital Ocean v2 API. In addition, the package includes functions to install various R tools including base R, RStudio server, and more. There’s an improving interface to interact with docker on your remote droplets via this package.
+        </li>
+        <li>
+          <a href="https://github.com/cole-brokamp/rize">
+<tt>rize</tt>
+          </a>
+          dockerises
+          <a href="https://shiny.rstudio.com/">
+            Shiny
+          </a>
+          applications.
         </li>
       </ul>
       <h2 id="package-management">
         Package management
       </h2>
-      <p>...
+      <p>
+        …
+      </p>
+      <h2 id="templates-and-workflows">
+        Templates and workflows
+      </h2>
+      <p>
+        …
       </p>
     </div>
 
