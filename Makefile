@@ -11,9 +11,11 @@ README.md: ComputationalEnvironments.html
 	pandoc -w gfm --wrap=none -o README.md ComputationalEnvironments.html
 	sed -i.tmp -e 's|( \[|(\[|g' README.md
 	sed -i.tmp -e 's| : |: |g' README.md
-	sed -i.tmp -e 's|../packages/|http://cran.rstudio.com/web/packages/|g' README.md
+	sed -i.tmp -e 's|../packages/|http://cran.r-project.org/web/packages/|g' README.md
 	# sed -i.tmp -e '4s/.*/| | |\n|---|---|/' README.md
-	# sed -i.tmp -e '4i*Do not edit this README by hand. See \[CONTRIBUTING.md\]\(CONTRIBUTING.md\).*\n' README.md
+	bash -c "echo -e '*Do not edit this README by hand. See [CONTRIBUTING.md](CONTRIBUTING.md).*\n' > README.tmp"
+	bash -c "cat README.md >> README.tmp"
+	mv README.tmp README.md
 	rm *.tmp
 
 check:
@@ -25,22 +27,27 @@ checkurls:
 README.html: README.md
 	pandoc --from=gfm -o README.html README.md
 
-diff:
-	git pull
-	svn checkout svn://svn.r-forge.r-project.org/svnroot/ctv/pkg/inst/ctv
-	cp ./ctv/ComputationalEnvironments.ctv ComputationalEnvironments.ctv
-	git diff ComputationalEnvironments.ctv > cran.diff
-	git checkout -- ComputationalEnvironments.ctv
-	rm -r ./ctv
+clean:
+	rm README.md
+	rm ComputationalEnvironments.*
 
-svn:
-	svn checkout svn+ssh://schamber789@svn.r-forge.r-project.org/svnroot/ctv/
-	cp ComputationalEnvironments.ctv ./ctv/pkg/inst/ctv/
-	cd ./ctv
-	svn status
-
-release:
-	cd ./ctv
-	svn commit --message "update ComputationalEnvironments"
-	cd ../
-	rm -r ./ctv
+#diff:
+#	git pull
+#	svn checkout svn://svn.r-forge.r-project.org/svnroot/ctv/pkg/inst/ctv
+#	cp ./ctv/ComputationalEnvironments.ctv ComputationalEnvironments.ctv
+#	git diff ComputationalEnvironments.ctv > cran.diff
+#	git checkout -- ComputationalEnvironments.ctv
+#	rm -r ./ctv
+#
+#svn:
+#	svn checkout svn+ssh://schamber789@svn.r-forge.r-project.org/svnroot/ctv/
+#	cp ComputationalEnvironments.ctv ./ctv/pkg/inst/ctv/
+#	cd ./ctv
+#	svn status
+#
+#release:
+#	cd ./ctv
+#	svn commit --message "update ComputationalEnvironments"
+#	cd ../
+#	rm -r ./ctv
+#
