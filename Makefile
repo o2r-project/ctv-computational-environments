@@ -16,6 +16,7 @@ README.md: ComputationalEnvironments.html
 	bash -c "echo -e '*Do not edit this README by hand. See [CONTRIBUTING.md](CONTRIBUTING.md).*\n' > README.tmp"
 	bash -c "cat README.md >> README.tmp"
 	mv README.tmp README.md
+	sed -i '/view=ComputationalEnvironments/d' README.md
 	rm *.tmp
 
 check:

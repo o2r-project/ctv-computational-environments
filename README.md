@@ -7,13 +7,14 @@
 | **Maintainer:** | Daniel Nüst                                                 |
 | **Contact:**    | daniel.nuest at uni-muenster.de                             |
 | **Version:**    | 2018-01-12                                                  |
-| **URL:**        | <https://CRAN.R-project.org/view=ComputationalEnvironments> |
 
 <div>
 
 This Task View contains information about controlling and documenting computational environments in R. The base version of R does not provide features to manage different version of R or collections of packages easily, so a number of approaches and packages exist to simplify computational environments for the sake of development, testing, bug-fixing, and reproducibility. The [ReproducibleResearch Task View](https://cran.r-project.org/view=ReproducibleResearch) provides further discussion of packages around scientific reproducibility.
 
 If you have any comments or suggestions for additions or improvements for this Task View, go to GitHub and [submit an issue](https://github.com/o2r-project/ctv-computational-environments/issues), or make some changes and [submit a pull request](https://github.com/o2r-project/ctv-computational-environments/pulls). If you can’t contribute on GitHub, [send Daniel an email](mailto:daniel.nuest@uni-muenster.de). If you have an issue with one of the packages discussed below, please contact the maintainer of that package.
+
+**Contributors:** <span class="citation" data-cites="nuest"> \[@nuest\] </span> (https://github.com/nuest/)
 
 ## Virtual Machines and Containers
 

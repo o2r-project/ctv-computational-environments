@@ -10,8 +10,8 @@ The output document formats will ignore these simple line breaks.
 
 ### Requirements
 
-* `R`
-* `make`
+* [`R`](https://www.r-project.org/)
+* [`make`](https://en.wikipedia.org/wiki/Make_(software))
 * [`pandoc`](http://pandoc.org/)
 
 If you don't want to or can't install these things, then just edit the `compenv.md` file, and submit a pull request.
@@ -37,7 +37,8 @@ If you don't want to or can't install these things, then just edit the `compenv.
     If you don't, follow the error messages to fix. If you can't figure out how to fix, just send the PR anyway, and the maintainer will fix.
 
     If you changed anything in the `compenv.md` file, repeat step 3 to remake files. If everything was fine, proceed.
-5. Push back up to your account, then send a pull request to `o2r-project/ctv-computational-environments`
+5. Add your GitHub handle to the list of contributors in `compenv.md`
+6. Push back up to your account, then send a pull request to `o2r-project/ctv-computational-environments`
 
 ## Submit an issue
 

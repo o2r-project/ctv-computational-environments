@@ -2,6 +2,8 @@ This Task View contains information about controlling and documenting computatio
 
 If you have any comments or suggestions for additions or improvements for this Task View, go to GitHub and [submit an issue](https://github.com/o2r-project/ctv-computational-environments/issues), or make some changes and [submit a pull request](https://github.com/o2r-project/ctv-computational-environments/pulls). If you can't contribute on GitHub, [send Daniel an email](mailto:daniel.nuest@uni-muenster.de). If you have an issue with one of the packages discussed below, please contact the maintainer of that package.
 
+**Contributors:** [@nuest](https://github.com/nuest/)
+
 ## Virtual Machines and Containers
 
 **Virtual machines** (VMs) are a straightforward way to encapsulate your runtime environment around the actual data and code. 
