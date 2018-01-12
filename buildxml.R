@@ -4,7 +4,7 @@ pattern <- "pkg>[[:alnum:]]+[[:alnum:].]*[[:alnum:]]+"
 out <- paste0(template, collapse = " ")
 pkgs <- stringr::str_extract_all(out, pattern)[[1]]
 pkgs <- unique(gsub("^pkg>", "", pkgs))
-priority <- c() # c('curl','httr')
+priority <- c('docker')
 pkgs <- pkgs[ !pkgs %in% priority] # remove priority packages
 pkgs <- lapply(as.list(sort(pkgs)), function(x) list(package=x))
 output <- 
