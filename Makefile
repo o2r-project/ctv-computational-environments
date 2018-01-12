@@ -1,4 +1,4 @@
-all: README.md
+all: README.md index
 
 ComputationalEnvironments.ctv: compenv.md buildxml.R
 	pandoc -w html --wrap=none -o ComputationalEnvironments.ctv compenv.md
@@ -30,6 +30,16 @@ README.html: README.md
 clean:
 	rm README.md
 	rm ComputationalEnvironments.*
+	rm *.html
+
+index:
+	cp ComputationalEnvironments.html index.html
+	# remove lines linking to the official cran page
+	sed -i '/view=ComputationalEnvironments/d' index.html
+	# fix the CSS URL
+	sed -i 's|../CRAN_web.css|https://cran.r-project.org/R.css|g' index.html
+	# fix link list
+	sed -i 's|../packages|https://cran.r-project.org/web/packages|g' index.html
 
 #diff:
 #	git pull
