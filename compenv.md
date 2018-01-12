@@ -33,31 +33,69 @@ The [**Rocker** project](http://rocker-project.org/) provides a number of Docker
 All Rocker images are available on the Docker Hub.
 Rocker images are a stable and widespread tool for running R in local and cloud environments and have established useful best practices around containers with R.
 
-_Since images can extend existing ones, using a suitable Rocker image as a base for your own computations is a very good approach to control your computational environment._
-The simplest way is to run the `rocker/rstudio` container and work with the [RStudio IDE](https://www.rstudio.com/products/rstudio/) in your web browser.
-
 **Bioconductor** provides a [collection of images](http://bioconductor.org/help/docker/) based on `rocker/rstudio`.
 
-### Other R distributions
+_Since images can extend existing ones, using a suitable Rocker image as a base for your own computations is a very good approach to control your computational environment._
+The simplest way is to run the `rocker/rstudio` container and work with the [RStudio IDE](https://www.rstudio.com/products/rstudio/) in your web browser.
+Alternatively, you can develop your analysis on your computer and "package" it in a container only when preparing for a software release of scientific publication.
 
-Docker images for other than the "regular" R distribution are available on Docker Hub, though none at the level of maturity and features of Rocker.
+### Other R distributions and operating systems 
 
-- <pkg>one</pkg> is ...
+Docker images for other than the "regular" R distribution and the [Debian](https://www.debian.org)-based Rocker images are available on Docker Hub, though none at the level of maturity and features of Rocker.
 
-### Tools for working with Containers
+- **[MRO](https://mran.microsoft.com/open)** images are available as an independent contribution (i.e. not by MRO team) on Docker Hub, [`nuest/mro`](https://hub.docker.com/r/nuest/mro/), and as CentOS-based Dockerfiles on GitHub, [`jlisic/R-docker-centos`](https://github.com/jlisic/R-docker-centos).
+- [Renjin](http://www.renjin.org/about.html) images are available as an independent contribution on Docker Hub as [`nuest/renjin`](https://hub.docker.com/r/nuest/renjin/)
+- [pqR](http://www.pqr-project.org/) images are available as an independent contribution on Docker Hub as [`nuest/pqr`](https://hub.docker.com/r/nuest/pqr/)
+
+### Tools for working with containers
 
 **Docker**
 
 - [`harbor`](https://github.com/wch/harbor/) (not on CRAN) provides all Docker commands with R functions. It may be used to control Docker containers that run either locally or remotely.
 - <pkg>docker</pkg> is an alternative to the plain R `harbor` and provides Docker CLI commands using the [Docker SDK for Python](https://docker-py.readthedocs.io/en/stable/) via the package [`reticulate`](https://rstudio.github.io/reticulate/) and consequently runs on various operating systems including Windows. The package is best suited for apt Docker users, i.e. if you know the Docker commands and life cycle. Source code is [on GitHub](https://github.com/bhaskarvk/docker).
 - [`dockermachine`](https://github.com/cboettig/dockermachine) (not on CRAN) provides a convenient R interface to the [`docker-machine`](https://docs.docker.com/machine/overview/) command, so you can provision easily local or remote/cloud instances of containers.
-- [analogsea](https://github.com/sckott/analogsea) is a general purpose client for the Digital Ocean v2 API. In addition, the package includes functions to install various R tools including base R, RStudio server, and more. There's an improving interface to interact with docker on your remote droplets via this package.
-- [`rize`](https://github.com/cole-brokamp/rize) dockerises [Shiny](https://shiny.rstudio.com/) applications.
+- <pkg>analogsea</pkg> is a general purpose client for the Digital Ocean v2 API. In addition, the package includes functions to install various R tools including base R, RStudio server, and more. There's an improving interface to interact with docker on your remote droplets via this package. ([GitHub](https://github.com/sckott/analogsea)) 
+- [`rize`](https://github.com/cole-brokamp/rize) (not on CRAN) dockerises [Shiny](https://shiny.rstudio.com/) applications.
+- [`containerit`](https://github.com/o2r-project/containerit) (not on CRAN) automatically creates Dockerfiles for arbitrary R sessions, script files, or workspace directories.
+- [`dockertest`](https://github.com/traitecoevo/dockertest) (not con CRAN) is a proof of concept for using the isolated environments of Docker containers to run tests.
+- <pkg>liftr</pkg> partially automates rendering R Markdown documents with Docker by adding YAML-metadata ([example](https://github.com/road2stat/dockflow/blob/master/config/sequencing.yml)), see [http://liftr.me/](http://liftr.me/).
+- <pkg>googleComputeEngineR</pkg> ([website](https://cloudyr.github.io/googleComputeEngineR/)) provides an R interface to the Google Cloud Compute Engine API, for example for creating an RStudio VM, also using Docker to configure the environment.
+- [**`batchtools`**](https://cran.r-project.org/package=batchtools) ([repository](https://github.com/mllg/batchtools), [JOSS paper](http://dx.doi.org/10.21105/joss.00135)) provides a parallel implementation of [Map](https://en.wikipedia.org/wiki/Map_(parallel_pattern)) for [HPC](https://en.wikipedia.org/wiki/Supercomputer) for different [schedulers](https://en.wikipedia.org/wiki/Job_scheduler), including [Docker Swarm](https://docs.docker.com/engine/swarm/).
+
+## Deployment
+
+Another alternative to share a well-defined computational environment is setting up R on a server.
+
+**Interactive development environments**
+
+- [RStudio Server](https://www.rstudio.com/products/rstudio/#Server)
+- [RCloud](http://rcloud.social) ([Docker images](https://hub.docker.com/r/rcl0ud/rcloud/) and [Dockerfile](https://github.com/att/rcloud/tree/master/docker))
+
+**Apps and APIS**
+
+- [ShinyProxy](https://www.shinyproxy.io/) by [Open Analytics](https://www.openanalytics.eu/)
+- <pkg>plumber</pkg> ([website](https://www.rplumber.io/) allows creating web services as HTTP APIs in pure R.
+- [rApache](http://rapache.net) supports web application development using the [Apache web server](https://httpd.apache.org/).
 
 ## Package management
 
-...
+- checkpoint
+- rbundler
+- packrat
+- pkgsnap
 
-## Templates and workflows
+## Structure, templates and workflows
 
-...
+A good project structure is essential to be sure about the actually used computational environment, which includes locally defines functions and data and not just used packages or the R version.
+
+- <pkg>here</pkg> constructs paths to a project's files.
+- [Ben Marwick's compendium](https://github.com/benmarwick/researchcompendium)
+- [rrtools](https://github.com/benmarwick/rrtools)
+
+## Tracking and provenance
+
+A computational environment evolves as an analysis is developed.
+These packages help observing these changes, in addition to always recommended [code versioning systems](https://en.wikipedia.org/wiki/Version control systems).
+
+- [`freezer`](https://github.com/ekernf01/freezr) (not on CRAN) helps data analysis by capturing analyses executions including used code, results, and metadata.
+- [`recordr`](https://github.com/NCEAS/recordr) (not on CRAN) provides an automated way to capture data provenance of "runs" for R scripts and console commands.
