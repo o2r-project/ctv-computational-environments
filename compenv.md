@@ -79,10 +79,10 @@ Another alternative to share a well-defined computational environment is setting
 
 ## Package management
 
-- checkpoint
-- rbundler
-- packrat
-- pkgsnap
+- <pkg>checkpoint</pkg> ([GitHub](https://github.com/RevolutionAnalytics/checkpoint))
+- <pkg>rbundler</pkg>
+- <pkg>packrat</pkg> ([GitHub](https://github.com/rstudio/packrat))
+- pkgsnap ([GitHub](https://github.com/MangoTheCat/pkgsnap))
 - <pkg>switchr</pkg> ([GitHub](https://github.com/gmbecker/switchr))
 - <pkg>switchrGist</pkg> ([GitHub](https://github.com/gmbecker/switchrGist))
 
