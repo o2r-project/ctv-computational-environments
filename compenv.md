@@ -83,6 +83,8 @@ Another alternative to share a well-defined computational environment is setting
 - rbundler
 - packrat
 - pkgsnap
+- <pkg>switchr</pkg> ([GitHub](https://github.com/gmbecker/switchr))
+- <pkg>switchrGist</pkg> ([GitHub](https://github.com/gmbecker/switchrGist))
 
 ## Structure, templates and workflows
 
