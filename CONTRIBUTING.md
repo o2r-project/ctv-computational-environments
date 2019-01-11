@@ -12,7 +12,8 @@ The output document formats will ignore these simple line breaks.
 
 * [`R`](https://www.r-project.org/)
 * [`make`](https://en.wikipedia.org/wiki/Make_(software))
-* [`pandoc`](http://pandoc.org/)
+* [`pandoc`](http://pandoc.org/) >= 2.0
+* R packages [`ctv`]( https://CRAN.R-project.org/package=ctv) and [`stringr`]( https://CRAN.R-project.org/package=stringr) (these will be automatically installed by the R scripts)
 
 If you don't want to or can't install these things, then just edit the `compenv.md` file, and submit a pull request.
 
